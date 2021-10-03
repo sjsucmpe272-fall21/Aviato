@@ -15,74 +15,59 @@ Aravind Thonupunuri - 015922231
 
 
 ### Idea-1: 
-### DORM RATING APP
+### Property Sales Trend using AI
 #### Introduction to problem statement:-
-The dorm and dining on campus for students has been a lot different than previous times. We have more diversity of cultures and religions, with this comes more diversification of food. Every university has multiple dorms, and students normally have a hard time finding the dorm that fits their needs. And the students currently in dorms face issues during their stay, and giving a rating and review would help upcoming students to be aware of the issues happening in a particular dorm. This rating will help universities to get up to the mark and fulfill students requirements.
+The rising cost of housing in the USA has recently been a concern even more in the time of pandemic. People want to know if its a good time to buy a house or they should wait. We plan to solve this problem by taking the housing trends from the past and predict the future market.
  
 #### Abstract:-
-Creating a web-app where students can write reviews and rate the services of their university and all the affiliated universities can improvise using that feedback.
+Utilize the pre-built dataset from kaggle to train the machine learning model to predict the future market scenario. 
 
 #### Approach:-
-The web-app frontend will be made using ReactJS, HTML CSS and Bootstrap, with the backend technology being NodeJs for creating the RESTful API's. We will use the NOSQL database MONGODB for storage purposes.
+The web-app frontend will be made using ReactJS, HTML CSS and Bootstrap, with the backend technology being NodeJs for creating the RESTful API's. We will use the NOSQL database MONGODB for storage purposes. Kaggle will be used for dataset collection. ML model will be used to train the dataset in Python(TensorFlow).
 
 
 #### Persona:-
-##### Joseph:
-Joseph is a freshmen looking for a dorm and he does not know which dorm to choose, he can go to the website to check the reviews and check which dorm suits best for him
-##### Kyle:
-Kyle is currently living in Joe West, and he realizes that Joe West restrooms are not maintained well, and there is no air conditioning in the dorm. He can leave a rating and review.
+##### John :  
+John is looking to buy house in San Jose, he realises the market value for houses are rising daily and he is in state of confusion whether he should buy the house or not. He is afraid that the more he waits, prices will go high. He can use our website to get an idea what will be the near future trends of the market and make decisions accordingly.
 
-#### Idea-2:
-#### ANONYMOUS STUDENT NETWORK
+#### Dataset Link:- 
+https://www.kaggle.com/new-york-city/nyc-property-sales
+
+
+### Idea-2:
+#### Business growth using Consumer shopping trend 
 
 #### Problem Statement:
-University Students do not have an existing forum where they can express their feelings, experience, and talk about their good and bad days by being anonymous. Having an anonymous student network where people can connect, share their tips and hacks, have fun, and share their thoughts. This would help the students understand their surroundings better.
+In this fast growing business world e-commerce companies want to be ahead of their competitors by all means. Companies want to know which items the consumers are willing to buy the most. We can improve their business by knowing the shopping trends of their consumers and predict the list of products which they can sell for being the best in the market.
 
 #### Abstract:
-People joining Universities have different mindsets, different goals, different majors, and a completely different lifestyle. There are thousands of students joining American Universities each year with a different set of expectations, and students can use this platform to express and discuss the opinions that matter to them. Being anonymous gives the students a space to be open about their thoughts. The application will give students a healthy platform for discussing their opinions.
+Utilize the pre-built dataset from kaggle to train the machine learning model to predict the list of products which are best fit for consumers. 
 
 #### Approach:
-Frontend Technology: HTML, CSS, React.js
-Backend Technology: Node.js, MongoDB
+The web-app frontend will be made using ReactJS, HTML CSS and Bootstrap, with the backend technology being NodeJs for creating the RESTful API's. We will use the NOSQL database MONGODB for storage purposes. Kaggle will be used for dataset collection. ML model will be used to train the dataset in Python(TensorFlow).
 Docker will be utilized for containerization and AWS EC2 for application hosting.
 
 #### Persona:
-Tim Horton, a Math major student at SJSU, is having a hard time understanding the concepts introduced in Math 42 class. He wants to know how people are finding the class and wants to see if the seniors who took the class can give him some tips on how to approach the subject. He has imposters syndrome and does not want to go and ask his peers, because he thinks they might think he is not smart. He can go to our website and create a post asking for tips on how to do better in class. Both seniors and the current students in the class can help him.
+Target wants to improve its business by knowing the requirements of their customers. It can use our website to know the shopping trends of the consumers and stock their warehouse accordingly.
 
 #### Dataset Link: 
-No dataset Required
- 
+https://www.kaggle.com/imakash3011/online-shoppers-purchasing-intention-dataset
 
-#### Idea-3:
-#### MONEY TRANSFER APP
+
+### Idea-3:
+#### Personalized Food Recommendation System
 
 #### Introduction to the problem statement :
-Making online money transactions has become inevitable these days and there is a lot of scope in the industry to develop a money transfer app which has a friendly user interface and smooth working experience for the users. The application which we develop would help people to send and receive money to one another easily and reliably.
+Every now and then, when a person feels hungry, he or she is confused about what they would like to eat or drink right away. There might be a lot of options to choose from, yet, somehow we always find ourselves confused with making that choice, which is why we are building a tailored food recommendation algorithm which can identify previous peculiar user trends and suggest good options to eat. 
 
 #### Abstract:
-Building a web application which helps users to transfer money with minimal effort.
+Utilizing the kaggle food recommendation dataset to train the machine learning model and modify it with AI, uniquely for each user, to recommend them food and drink options at any given time of the day. 
 
 #### Approach: 
-Using HTML, CSS, NodeJS, ReactJS and Bootstrap we are going to build a money transfer web application which stores the  transactions made by the user in a MONGODB and display the current balance and transaction history for the users.
+Using HTML, CSS, NodeJS, React and VueJS to build a food recommendation web application, which stores the user’s dietary preferences in MongoDB in order to modify the recommendation model, and suggest good food or drink options. 
 
 #### Persona:
-A layman who is not well equipped with the knowledge of using money transfer apps might find it difficult to use the existing online money transfer apps. The application which we create will be helpful for him because it will hold a minimalistic view, so it will be easy to interact.
+Jake :  Jake just had his morning breakfast and he is off to work, but a few hours later he is quite hungry and can’t figure out what to have for lunch. He can use his tailored food recommendation application, which matches that Jake has quite enjoyed his salad bowl meals particularly on weekdays and when he usually comes for lunch a little late around 2 PM, the application will recommend a healthy bowl of salad due to the strong match
 
 #### Dataset links: 
-No dataset links are required for this project.
-
-#### Idea 4:
-#### TIMETABLE MANAGER
-
-#### Introduction to problem statement :
-A university student has to juggle a lot of things in a semester, from studying for multiple courses to working on their own other short term and long term goals, which is why there should be an effective system, to help students manage every goal in one place, by helping them manage their time effectively. The solution which we propose will help student’s time management problem, by allowing them to create a weekly schedule for coursework, quizzes, projects, and other peculiar agendas set for himself/herself. Students can also enter grades and track their class progress while also planning their next schedule without any conflicts with the current one.
-
-#### Abstract:
-Developing a web/mobile application where students can plan weekly study schedules for exams, study sessions, projects and other agendas. They can also enter grade data to keep track of the outcomes, and manage their academic goals wisely.
-
-#### Approach:
-Employing the MVC pattern, the frontend will be designed using React.js, HTML and CSS and will be connected to the backend system which will be developed using NodeJS and REST API which will be linked to MongoDB that will store the app data.
-
-#### Persona:
-End-users: Students who use the application to manage their academic schedule
-Dataset Link: No dataset Required
+https://www.kaggle.com/liqingcan/food-recommendation
