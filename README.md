@@ -1,7 +1,5 @@
 # Aviato
 
-## Project Ideas
-
 ### Participants:
 
 Pallav Kirankumar Parikh - 015275481
