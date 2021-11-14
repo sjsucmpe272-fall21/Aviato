@@ -1,0 +1,22 @@
+{
+  "name": "aviato",
+  "version": "1.0.0",
+  "description": "### Participants:",
+  "main": "aviato.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjsucmpe272-fall21/Aviato.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjsucmpe272-fall21/Aviato/issues"
+  },
+  "homepage": "https://github.com/sjsucmpe272-fall21/Aviato#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
