@@ -1,31 +1,80 @@
 import { Component } from "react";
-
+import { Bar } from "react-chartjs-2";
+import "./index.css";
 
 class Aviato extends Component {
-    state = {data: []}
-    componentDidMount() {
-        this.getBlogDetails()
-    }
-    getBlogDetails = async () => {
-        
-        const response = await fetch('http://localhost:9000/season')
-        console.log("fetch");
-        // const dataGot = await response.json()
-        const dataGot = await response.json()
-        console.log(dataGot["gameId"]["2018"])
-        this.setState(
-            {data: dataGot["gameId"]["2018"]}
-        )
-        console.log(dataGot)
-    }
+  state = { gameArray: [] };
+  componentDidMount() {
+    this.getBlogDetails();
+  }
+  getBlogDetails = async () => {
+    const response = await fetch("http://localhost:9000/season");
+    const dataGot = await response.json();
 
-    render() {
-        const {data} = this.state
-        console.log(data)
-        return (<div>
-            ${data}
-        </div>)
+    const { gameId } = dataGot;
+    let gameArray = [];
+    for (const [key, value] of Object.entries(gameId)) {
+      let temp = {
+        year: key,
+        score: value,
+      };
+      gameArray.push(temp);
     }
+    this.setState({ gameArray: gameArray });
+  };
+
+  render() {
+    const { gameArray } = this.state;
+    var labels = gameArray.map(function (e) {
+      return e.year;
+    });
+
+    var scoreData = gameArray.map(function (e) {
+      return e.score;
+    });
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          data: scoreData,
+          label: "Total Games Per Season",
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
+    };
+    const options = {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    };
+
+    console.log(data);
+    return (
+      <div className="graph">
+        <div className="header">
+          <h1 className="title">Vertical Bar Chart</h1>
+          <div className="links"></div>
+        </div>
+        <Bar data={data} options={options} />
+      </div>
+    );
+  }
 }
 
-export default Aviato
+export default Aviato;

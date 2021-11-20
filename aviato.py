@@ -8,28 +8,33 @@ Original file is located at
 """
 
 import pandas as pd
-import sys
+import sys,json
 dic = {}
 games = pd.read_csv('/Users/aravindthonupunuri/Downloads/nfl-big-data-bowl-2022/games.csv')
 players = pd.read_csv('/Users/aravindthonupunuri/Downloads/nfl-big-data-bowl-2022/players.csv')
 
-groupBySeason = games.groupby('season')['gameId'].count()
-groupBySeason= pd.DataFrame(groupBySeason)
-# groupBySeason.to_json()
-# print(groupBySeason.to_json())
-dic["groupBySeason"] = groupBySeason.to_json()
+data = json.loads(sys.argv[1])
+    
+if "week" == data:
+    groupByWeek = games.groupby('week')['gameId'].count()
+    groupByWeek= pd.DataFrame(groupByWeek)
+    print(groupByWeek.to_json())
 
-groupByWeek = games.groupby('week')['gameId'].count()
-groupByWeek= pd.DataFrame(groupByWeek)
-groupByWeek.to_json()
-dic["groupByWeek"] = groupByWeek.to_json()
-groupByGameTimeEastern = games.groupby('gameTimeEastern')['gameId'].count()
-groupByGameTimeEastern= pd.DataFrame(groupByGameTimeEastern)
-groupByGameTimeEastern.to_json()
+elif "season" == data:
+    groupBySeason = games.groupby('season')['gameId'].count()
+    groupBySeason= pd.DataFrame(groupBySeason)
+    print(groupBySeason.to_json())
 
-groupByPlayersWeight = players.groupby('weight')['nflId'].count()
-groupByPlayersWeight = pd.DataFrame(groupByPlayersWeight)
-groupByPlayersWeight.to_json()
+elif "gameTimeEastern" == data:
+    groupByGameTimeEastern = games.groupby('gameTimeEastern')['gamesId'].count()
+    groupByGameTimeEastern= pd.DataFrame(groupByGameTimeEastern)
+    print(groupByGameTimeEastern.to_json())
 
+elif "weight" == data:
+    groupByPlayersWeight = players.groupby('weight')['nflId'].count()
+    groupByPlayersWeight = pd.DataFrame(groupByPlayersWeight)
+    print(groupByPlayersWeight.to_json())
+    
+else:
+    raise Exception("Unkown stuff")
 
-print(dic)
