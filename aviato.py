@@ -9,9 +9,8 @@ Original file is located at
 
 import pandas as pd
 import sys,json
-dic = {}
-games = pd.read_csv('/Users/aravindthonupunuri/Downloads/nfl-big-data-bowl-2022/games.csv')
-players = pd.read_csv('/Users/aravindthonupunuri/Downloads/nfl-big-data-bowl-2022/players.csv')
+games = pd.read_csv('./games.csv')
+players = pd.read_csv('./players.csv')
 
 data = json.loads(sys.argv[1])
     
@@ -30,11 +29,27 @@ elif "gameTimeEastern" == data:
     groupByGameTimeEastern= pd.DataFrame(groupByGameTimeEastern)
     print(groupByGameTimeEastern.to_json())
 
+elif "headToHead"== data:
+    team1 = json.loads(sys.argv[2])
+    team2 = json.loads(sys.argv[3])
+    groupByHeadToHead = games[(games["homeTeamAbbr"]==team1) & (games["visitorTeamAbbr"]==team2)]
+    print(len(groupByHeadToHead))
+
 elif "weight" == data:
     groupByPlayersWeight = players.groupby('weight')['nflId'].count()
     groupByPlayersWeight = pd.DataFrame(groupByPlayersWeight)
     print(groupByPlayersWeight.to_json())
-    
+
+elif "height" == data:
+
+    groupByPlayersHeight = players.groupby('height')['nflId'].count()
+    groupByPlayersHeight = pd.DataFrame(groupByPlayersHeight)
+    print(groupByPlayersHeight.to_json())
+
+elif data == "teams":
+    teams = games.homeTeamAbbr.unique()
+    print(teams)
+
 else:
     raise Exception("Unkown stuff")
 
