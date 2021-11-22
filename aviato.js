@@ -93,3 +93,14 @@ app.get('/players-by-height', function (req, res) {
     });
 })
 
+app.get('/players-by-positions', function (req, res) {
+    var sys   = require('util'),
+    spawn = require('child_process').spawn,
+    arg1= JSON.stringify("position");
+    dummy  = spawn('python3', ['./aviato.py', arg1]);
+
+    dummy.stdout.on('data', function (data) {
+        res.send(data.toString());
+    });
+})
+

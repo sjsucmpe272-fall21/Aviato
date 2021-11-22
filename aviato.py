@@ -50,6 +50,12 @@ elif data == "teams":
     teams = games.homeTeamAbbr.unique()
     print(teams)
 
+elif data == "position":
+    playersByPosition = players.groupby("Position")['nflId'].count()
+    playersByPosition = pd.DataFrame(playersByPosition)
+    print(playersByPosition.to_json())
+
+
 else:
     raise Exception("Unkown stuff")
 
