@@ -2,10 +2,75 @@ var express = require('express');
 var app = express();
 var port = 9000;
 var cors = require('cors');
+
+const jwt = require('jsonwebtoken')
+const mongoose = require('mongoose')
+const User = require('./models/user')
+var bcrypt = require('bcryptjs');
+
+mongoose.connect('mongodb://localhost:27017/nfl-bowl', {})
+
 app.use(cors())
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+JWT_SECRET = 'dasdq34tgdfgd4s53'
+
+
 app.listen(port, function () {
     console.log(`server running on http://localhost:${port}`);
 })
+
+app.post('/api/login', async (req, res) => {
+	const { username, password } = req.body
+	const user = await User.findOne({ username }).lean()
+
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
+
+	if (await bcrypt.compare(password, user.password)) {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: user._id,
+				username: user.username
+			},
+			JWT_SECRET
+		)
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.status(401).json({ status: 'error', error: 'Invalid username/password' })
+})
+
+app.post('/api/register', async (req, res) => {
+    console.log(req.body);
+	const { username, password: plainTextPassword } = req.body
+
+	
+	const password = await bcrypt.hash(plainTextPassword, 10)
+
+	try {
+		const response = await User.create({
+			username,
+			password
+		})
+		console.log('User created successfully: ', response)
+	} catch (error) {
+		if (error.code === 11000) {
+			// duplicate key
+			return res.status(400).json({ status: 'error', error: 'Username already in use' })
+		}
+		throw error
+	}
+
+	res.json({ status: 'ok' })
+})
+
+
 
 // API to get list of all team abbrevations
 app.get('/list-of-team-abbr', function(req,res){
