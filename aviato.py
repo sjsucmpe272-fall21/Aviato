@@ -9,9 +9,9 @@ Original file is located at
 
 import pandas as pd
 import sys,json
-games = pd.read_csv('../nfl/games.csv')
-players = pd.read_csv('../nfl/players.csv')
-plays_df = pd.read_csv('../nfl/plays.csv')
+games = pd.read_csv('./games.csv')
+players = pd.read_csv('./players.csv')
+plays_df = pd.read_csv('./plays.csv')
 
 data = json.loads(sys.argv[1])
 
