@@ -9,11 +9,15 @@ Original file is located at
 
 import pandas as pd
 import sys,json
+import matplotlib.pyplot as plt
+
 games = pd.read_csv('./games.csv')
 players = pd.read_csv('./players.csv')
+plays = pd.read_csv('./plays.csv')
+tracking2018 = pd.read_csv('./tracking2018.csv')
 
 data = json.loads(sys.argv[1])
-    
+
 if "week" == data:
     groupByWeek = games.groupby('week')['gameId'].count()
     groupByWeek= pd.DataFrame(groupByWeek)
@@ -54,6 +58,12 @@ elif data == "position":
     playersByPosition = players.groupby("Position")['nflId'].count()
     playersByPosition = pd.DataFrame(playersByPosition)
     print(playersByPosition.to_json())
+
+
+elif data == "playsbyquarter":
+    playsByquarter  = plays.groupby("quarter")['gameId'].count()
+    playsByquarter = pd.DataFrame(playsByquarter)
+    print(playsByquarter.to_json())
 
 
 else:
