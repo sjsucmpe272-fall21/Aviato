@@ -14,7 +14,7 @@ players = pd.read_csv('../nfl/players.csv')
 plays_df = pd.read_csv('../nfl/plays.csv')
 
 data = json.loads(sys.argv[1])
-    
+
 if "week" == data:
     groupByWeek = games.groupby('week')['gameId'].count()
     groupByWeek= pd.DataFrame(groupByWeek)
@@ -55,6 +55,12 @@ elif data == "position":
     playersByPosition = players.groupby("Position")['nflId'].count()
     playersByPosition = pd.DataFrame(playersByPosition)
     print(playersByPosition.to_json())
+
+
+elif data == "playsbyquarter":
+    playsByquarter  = plays.groupby("quarter")['gameId'].count()
+    playsByquarter = pd.DataFrame(playsByquarter)
+    print(playsByquarter.to_json())
 
 
 else:
