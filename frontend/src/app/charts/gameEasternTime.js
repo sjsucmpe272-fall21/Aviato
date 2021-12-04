@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Line, Bar, Doughnut, Pie, Scatter} from 'react-chartjs-2';
+import {Line, Bar, Doughnut, Pie, Scatter, Radar} from 'react-chartjs-2';
 
 export class ChartJs extends Component {
 
@@ -8,12 +8,13 @@ export class ChartJs extends Component {
       this.getBlogDetails();
     }
     getBlogDetails = async () => {
-      const response = await fetch("http://ec2-3-145-123-28.us-east-2.compute.amazonaws.com/weight");
+      const response = await fetch("http://ec2-3-145-123-28.us-east-2.compute.amazonaws.com/gameTimeEastern");
       const dataGot = await response.json();
   
-      const { nflId } = dataGot;
+      const { gameId } = dataGot;
+      console.log(gameId);
       let gameArray = [];
-      for (const [key, value] of Object.entries(nflId)) {
+      for (const [key, value] of Object.entries(gameId)) {
         let temp = {
           year: key,
           score: value,
@@ -32,15 +33,19 @@ export class ChartJs extends Component {
       var scoreData = gameArray.map(function (e) {
         return e.score;
       });
+      const bgcolor =[]
+      for(let i = 0; i < labels.length; i++){
+            bgcolor.push("rgba(255, 99, 132, 1)")
+        }
+
       const data = {
         labels: labels,
         datasets: [
           {
             data: scoreData,
-            label: "Total Players by Weight",
-            borderColor: [
-              "rgba(255, 99, 132, 1)"],
-            borderWidth: 1,
+            label: "Game Played By Eastern Time",
+            backgroundColor: bgcolor,
+            borderWidth: 3,
           },
         ],
       };
@@ -60,7 +65,7 @@ export class ChartJs extends Component {
       return (
         <div className="graph">
           <div className="header">
-            <h1 className="title">Players Analysis By Height</h1>
+            <h1 className="title">Game Played By Eastern Time</h1>
             <div className="links"></div>
           </div>
           <Line data={data} options={options} />

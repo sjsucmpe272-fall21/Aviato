@@ -26,7 +26,7 @@ elif "season" == data:
     print(groupBySeason.to_json())
 
 elif "gameTimeEastern" == data:
-    groupByGameTimeEastern = games.groupby('gameTimeEastern')['gamesId'].count()
+    groupByGameTimeEastern = games.groupby('gameTimeEastern')['gameId'].count()
     groupByGameTimeEastern= pd.DataFrame(groupByGameTimeEastern)
     print(groupByGameTimeEastern.to_json())
 

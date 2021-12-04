@@ -8,7 +8,7 @@ export class ChartJs extends Component {
       this.getBlogDetails();
     }
     getBlogDetails = async () => {
-      const response = await fetch("http://localhost:9000/season");
+      const response = await fetch("http://ec2-3-145-123-28.us-east-2.compute.amazonaws.com/season");
       const dataGot = await response.json();
   
       const { gameId } = dataGot;
@@ -68,7 +68,7 @@ export class ChartJs extends Component {
       return (
         <div className="graph">
           <div className="header">
-            <h1 className="title">Vertical Bar Chart</h1>
+            <h1 className="title">Games Per Season</h1>
             <div className="links"></div>
           </div>
           <Doughnut data={data} options={options} />

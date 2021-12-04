@@ -8,7 +8,7 @@ export class ChartJs extends Component {
       this.getBlogDetails();
     }
     getBlogDetails = async () => {
-      const response = await fetch("http://localhost:9000/players-by-height");
+      const response = await fetch("http://ec2-3-145-123-28.us-east-2.compute.amazonaws.com/players-by-height");
       const dataGot = await response.json();
   
       const { nflId } = dataGot;
@@ -65,7 +65,7 @@ export class ChartJs extends Component {
       return (
         <div className="graph">
           <div className="header">
-            <h1 className="title">Vertical Bar Chart</h1>
+            <h1 className="title">Players Analysis By Height</h1>
             <div className="links"></div>
           </div>
           <Bar data={data} options={options} />
