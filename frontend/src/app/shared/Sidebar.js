@@ -84,6 +84,18 @@ class Sidebar extends Component {
                 <ul className="nav flex-column sub-menu">
                   <li className="nav-item"> <Link className={ this.isPathActive('/charts/season-js') ? 'nav-link active' : 'nav-link' } to="/charts/season-js"><Trans>Season Js</Trans></Link></li>
                 </ul>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/charts/week-js') ? 'nav-link active' : 'nav-link' } to="/charts/week-js"><Trans>Week Js</Trans></Link></li>
+                </ul>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/charts/weight-js') ? 'nav-link active' : 'nav-link' } to="/charts/weight-js"><Trans>Weight Js</Trans></Link></li>
+                </ul>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/charts/height-js') ? 'nav-link active' : 'nav-link' } to="/charts/height-js"><Trans>Height Js</Trans></Link></li>
+                </ul>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item"> <Link className={ this.isPathActive('/charts/position-js') ? 'nav-link active' : 'nav-link' } to="/charts/position-js"><Trans>Position Js</Trans></Link></li>
+                </ul>
               </div>
             </Collapse>
           </li>

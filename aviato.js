@@ -3,72 +3,80 @@ var app = express();
 var port = 9000;
 var cors = require('cors');
 
-const jwt = require('jsonwebtoken')
-const mongoose = require('mongoose')
-const User = require('./models/user')
-var bcrypt = require('bcryptjs');
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+ }
+ 
+ app.use(cors(corsOptions))
 
-mongoose.connect('mongodb://localhost:27017/nfl-bowl', {})
+// const jwt = require('jsonwebtoken')
+// const mongoose = require('mongoose')
+// const User = require('./models/user')
+// var bcrypt = require('bcryptjs');
 
-app.use(cors())
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// mongoose.connect('mongodb://localhost:27017/nfl-bowl', {})
 
-JWT_SECRET = 'dasdq34tgdfgd4s53'
+// app.use(cors())
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// JWT_SECRET = 'dasdq34tgdfgd4s53'
 
 
 app.listen(port, function () {
     console.log(`server running on http://localhost:${port}`);
 })
 
-app.post('/api/login', async (req, res) => {
-	const { username, password } = req.body
-	const user = await User.findOne({ username }).lean()
+// app.post('/api/login', async (req, res) => {
+// 	const { username, password } = req.body
+// 	const user = await User.findOne({ username }).lean()
 
-	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
-	}
+// 	if (!user) {
+// 		return res.json({ status: 'error', error: 'Invalid username/password' })
+// 	}
 
-	if (await bcrypt.compare(password, user.password)) {
-		// the username, password combination is successful
+// 	if (await bcrypt.compare(password, user.password)) {
+// 		// the username, password combination is successful
 
-		const token = jwt.sign(
-			{
-				id: user._id,
-				username: user.username
-			},
-			JWT_SECRET
-		)
+// 		const token = jwt.sign(
+// 			{
+// 				id: user._id,
+// 				username: user.username
+// 			},
+// 			JWT_SECRET
+// 		)
 
-		return res.json({ status: 'ok', data: token })
-	}
+// 		return res.json({ status: 'ok', data: token })
+// 	}
 
-	res.status(401).json({ status: 'error', error: 'Invalid username/password' })
-})
+// 	res.status(401).json({ status: 'error', error: 'Invalid username/password' })
+// })
 
-app.post('/api/register', async (req, res) => {
-    console.log(req.body);
-	const { username, password: plainTextPassword } = req.body
+// app.post('/api/register', async (req, res) => {
+//     console.log(req.body);
+// 	const { username, password: plainTextPassword } = req.body
 
 	
-	const password = await bcrypt.hash(plainTextPassword, 10)
+// 	const password = await bcrypt.hash(plainTextPassword, 10)
 
-	try {
-		const response = await User.create({
-			username,
-			password
-		})
-		console.log('User created successfully: ', response)
-	} catch (error) {
-		if (error.code === 11000) {
-			// duplicate key
-			return res.status(400).json({ status: 'error', error: 'Username already in use' })
-		}
-		throw error
-	}
+// 	try {
+// 		const response = await User.create({
+// 			username,
+// 			password
+// 		})
+// 		console.log('User created successfully: ', response)
+// 	} catch (error) {
+// 		if (error.code === 11000) {
+// 			// duplicate key
+// 			return res.status(400).json({ status: 'error', error: 'Username already in use' })
+// 		}
+// 		throw error
+// 	}
 
-	res.json({ status: 'ok' })
-})
+// 	res.json({ status: 'ok' })
+// })
 
 
 

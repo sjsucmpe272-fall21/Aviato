@@ -17,6 +17,10 @@ const Mdi = lazy(() => import('./icons/Mdi'));
 
 const ChartJs = lazy(() => import('./charts/ChartJs'));
 const Season = lazy(() => import('./charts/Season'));
+const Week = lazy(() => import('./charts/Week'));
+const Weight = lazy(() => import('./charts/Weight'));
+const Height = lazy(() => import('./charts/Height'));
+const Position = lazy(() => import('./charts/Position'));
 const Error404 = lazy(() => import('./error-pages/Error404'));
 const Error500 = lazy(() => import('./error-pages/Error500'));
 
@@ -45,7 +49,10 @@ class AppRoutes extends Component {
 
           <Route path="/charts/chart-js" component={ ChartJs } />
           <Route path="/charts/season-js" component={ Season } />
-
+          <Route path="/charts/week-js" component={ Week } />
+          <Route path="/charts/weight-js" component={ Weight } />
+          <Route path="/charts/height-js" component={ Height } />
+          <Route path="/charts/position-js" component={ Position } />
           <Route path="/error-pages/error-404" component={ Error404 } />
           <Route path="/error-pages/error-500" component={ Error500 } />
 
