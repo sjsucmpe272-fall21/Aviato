@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Line, Bar, Doughnut, Pie, Scatter} from 'react-chartjs-2';
+import {Line, Bar, Doughnut, Pie, Scatter, Polar} from 'react-chartjs-2';
 
 export class ChartJs extends Component {
 
@@ -48,7 +48,7 @@ export class ChartJs extends Component {
               "rgba(54, 162, 235, 1)",
               "rgba(255, 206, 86, 1)",
             ],
-            borderWidth: 1,
+            hoverOffset: 4,
           },
         ],
       };
@@ -71,7 +71,7 @@ export class ChartJs extends Component {
             <h1 className="title">Vertical Bar Chart</h1>
             <div className="links"></div>
           </div>
-          <Bar data={data} options={options} />
+          <Doughnut data={data} options={options} />
         </div>
       );
     }

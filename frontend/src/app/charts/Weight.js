@@ -37,34 +37,34 @@ export class ChartJs extends Component {
         datasets: [
           {
             data: scoreData,
-            label: "Total Players by Weigh",
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-            ],
+            label: "Total Players by Weight",
+            // backgroundColor: [
+            //   "rgba(255, 99, 132, 0.2)",
+            //   "rgba(54, 162, 235, 0.2)",
+            //   "rgba(255, 206, 86, 0.2)",
+            //   "rgba(255, 99, 132, 0.2)",
+            //   "rgba(54, 162, 235, 0.2)",
+            //   "rgba(255, 206, 86, 0.2)",
+            //   "rgba(255, 99, 132, 0.2)",
+            //   "rgba(54, 162, 235, 0.2)",
+            //   "rgba(255, 206, 86, 0.2)",
+            //   "rgba(255, 99, 132, 0.2)",
+            //   "rgba(54, 162, 235, 0.2)",
+            //   "rgba(255, 206, 86, 0.2)",
+            // ],
             borderColor: [
               "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
+            //   "rgba(54, 162, 235, 1)",
+            //   "rgba(255, 206, 86, 1)",
+            //   "rgba(255, 99, 132, 1)",
+            //   "rgba(54, 162, 235, 1)",
+            //   "rgba(255, 206, 86, 1)",
+            //   "rgba(255, 99, 132, 1)",
+            //   "rgba(54, 162, 235, 1)",
+            //   "rgba(255, 206, 86, 1)",
+            //   "rgba(255, 99, 132, 1)",
+            //   "rgba(54, 162, 235, 1)",
+            //   "rgba(255, 206, 86, 1)",
             ],
             borderWidth: 1,
           },
@@ -89,7 +89,7 @@ export class ChartJs extends Component {
             <h1 className="title">Vertical Bar Chart</h1>
             <div className="links"></div>
           </div>
-          <Bar data={data} options={options} />
+          <Line data={data} options={options} />
         </div>
       );
     }
