@@ -63,7 +63,7 @@ class AppRoutes extends Component {
           <Route path="/error-pages/error-500" component={ Error500 } />
 
 
-          <Redirect to="/dashboard" />
+          <Redirect to="/charts/season-js" />
         </Switch>
       </Suspense>
     );
